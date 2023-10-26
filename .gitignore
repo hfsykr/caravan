@@ -1,0 +1,14 @@
+# Environments
+.env
+venv/
+
+# node_modules directory
+node_modules/
+
+# Neural Network Weights
+ml/**/*.pt
+
+# Cars Images
+static/images/cars/*.png
+static/images/cars/*.jpg
+static/images/cars/*.jpeg
