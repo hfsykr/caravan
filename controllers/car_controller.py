@@ -8,3 +8,6 @@ def predict():
     result = inference(request)
     
     return jsonify(result)
+
+def list():
+    return "Car List!"
