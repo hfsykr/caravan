@@ -1,14 +1,18 @@
-from app import db
+from database import db
 from uuid import uuid4
 from datetime import datetime
+from slugify import slugify
+from sqlalchemy import inspect
 
 def default_slug(context):
     params = context.get_current_parameters()
     manufacturer = params["manufacturer"]
     model = params["model"]
-    year = params["year"]
     type = params["type"]
-    return manufacturer + "-" + model + "-" + type + "-" + str(year)
+    year = params["year"]
+    slug = (manufacturer + "-" + model + "-" + type + "-" + str(year)).lower()
+    clean_slug = slugify(slug)
+    return clean_slug
 
 
 class Car(db.Model):
@@ -16,8 +20,8 @@ class Car(db.Model):
     label            = db.Column(db.Integer, nullable=False, unique=True)
     manufacturer     = db.Column(db.String, nullable=False)
     model            = db.Column(db.String, nullable=False)
-    year             = db.Column(db.Integer, nullable=False)
     type             = db.Column(db.String, nullable=False)
+    year             = db.Column(db.Integer, nullable=False)
     engine           = db.Column(db.String)
     horsepower       = db.Column(db.String)
     torque           = db.Column(db.String)
@@ -36,6 +40,9 @@ class Car(db.Model):
     slug             = db.Column(db.String, default=default_slug, nullable=False, unique=True)
     created          = db.Column(db.DateTime(timezone=True), default=datetime.now)   
     updated          = db.Column(db.DateTime(timezone=True), default=datetime.now, onupdate=datetime.now)
+
+    def to_dict(self):
+        return { c.key: getattr(self, c.key) for c in inspect(self).mapper.column_attrs }
 
     def __repr__(self):
         return "<%r>" % self.slug

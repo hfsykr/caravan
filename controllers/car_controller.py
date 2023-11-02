@@ -1,5 +1,6 @@
-from flask import request, jsonify
+from flask import request, jsonify, render_template
 from services.ml_service import inference
+from services.car_service import get_car_list
 
 def index():
     return "Car Index!"
@@ -10,4 +11,5 @@ def predict():
     return jsonify(result)
 
 def list():
-    return "Car List!"
+    data = get_car_list()
+    return render_template("car/list.html", data=data)

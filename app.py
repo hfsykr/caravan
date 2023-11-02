@@ -1,5 +1,5 @@
 from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
+from database import db
 from flask_migrate import Migrate
 from dotenv import load_dotenv
 import os
@@ -16,7 +16,6 @@ config = {
     "PRODUCTION": ProductionConfig
 }
 
-db = SQLAlchemy()
 migrate = Migrate()
 
 def create_app():
