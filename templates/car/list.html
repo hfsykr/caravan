@@ -1,15 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div class="grid grid-cols-5 gap-4 justify-items-center px-32 py-10 min-h-screen w-full bg-white dark:bg-gray-900">
+    <div class="grid grid-cols-5 gap-4 justify-items-center px-36 py-10 min-h-screen w-full bg-white dark:bg-gray-900">
         {% for d in data %}
         <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-            <a href="#
-            ">
+            <a href="{{ url_for('car.detail', slug=d['slug']) }}">
                 <img class="rounded-t-lg h-48 object-cover" src="{{ url_for('static', filename=d['image']) }}" alt="" />
             </a>
             <div class="p-5">
-                <a href="#">
+                <a href="{{ url_for('car.detail', slug=d['slug']) }}">
                     <h2 class="text-base font-bold tracking-normal text-gray-900 dark:text-white">{{ d["manufacturer"] }} {{ d["model"] }} {{ d["type"] }} {{ d["year"] }}</h2>
                 </a>
             </div>

@@ -40,7 +40,7 @@
             </div>
             <input id="dropzoneFileInput" type="file" name="image" class="hidden" accept="image/jpeg, image/png" />
         </label>
-        <img id="dropzoneImage" class="w-2/4 h-3/5 rounded-lg hidden"
+        <img id="dropzoneImage" class="w-2/4 h-3/5 object-cover rounded-lg hidden"
             src="{{ url_for('static', filename='images/image-1@2x.jpg') }}">
         <div class="flex justify-end w-2/4 mt-5">
             <button type="button" id="cancelButton"

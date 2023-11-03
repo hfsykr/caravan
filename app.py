@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 import os
 from routes.index_routes import index_blueprint
 from routes.car_routes import car_blueprint
+from routes.error_handlers import page_not_found
 from config import DevelopmentConfig, TestingConfig, StagingConfig, ProductionConfig
 
 load_dotenv()
@@ -30,5 +31,6 @@ def create_app():
 
     app.register_blueprint(index_blueprint)
     app.register_blueprint(car_blueprint, url_prefix="/car")
+    app.register_error_handler(404, page_not_found)
 
     return app
