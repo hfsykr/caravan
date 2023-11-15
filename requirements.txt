@@ -1,5 +1,8 @@
 Flask==3.0.0
 python-dotenv==1.0.0
+# comment/uncomment url bellow if you want to install pytorch with cpu or gpu (cuda)
+--extra-index-url https://download.pytorch.org/whl/cpu
+# --extra-index-url https://download.pytorch.org/whl/cu121
 torch==2.0.0
 torchvision==0.15.1
 gunicorn==21.2.0
