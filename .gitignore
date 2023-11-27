@@ -1,6 +1,7 @@
 # Environments
 .env
 venv/
+*-venv/
 
 # node_modules directory
 node_modules/

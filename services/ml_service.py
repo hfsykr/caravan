@@ -34,10 +34,9 @@ def get_inference(input):
 
     return pred.item()
 
-def inference(request):
-    file = request.files['image']
-    image_bytes = file.read()
-    image = Image.open(io.BytesIO(image_bytes))
+def inference(image):
+    image = image.read()
+    image = Image.open(io.BytesIO(image))
     image_tensor = get_transform(image)
     label_pred = get_inference(image_tensor)
     class_name = class_labels[str(label_pred)]

@@ -2,18 +2,12 @@ from database import db
 from uuid import uuid4
 from datetime import datetime
 from slugify import slugify
-from sqlalchemy import inspect
 
 def default_slug(context):
     params = context.get_current_parameters()
-    manufacturer = params["manufacturer"]
-    model = params["model"]
-    type = params["type"]
-    year = params["year"]
-    slug = (manufacturer + "-" + model + "-" + type + "-" + str(year)).lower()
+    slug = (params["manufacturer"] + "-" + params["model"] + "-" + params["type"] + "-" + str(params["year"])).lower()
     clean_slug = slugify(slug)
     return clean_slug
-
 
 class Car(db.Model):
     id               = db.Column(db.UUID(as_uuid=True), primary_key=True, default=uuid4, nullable=False, unique=True)
@@ -40,9 +34,6 @@ class Car(db.Model):
     slug             = db.Column(db.String, default=default_slug, nullable=False, unique=True)
     created          = db.Column(db.DateTime(timezone=True), default=datetime.now)   
     updated          = db.Column(db.DateTime(timezone=True), default=datetime.now, onupdate=datetime.now)
-
-    def to_dict(self):
-        return { c.key: getattr(self, c.key) for c in inspect(self).mapper.column_attrs }
 
     def __repr__(self):
         return "<%r>" % self.slug

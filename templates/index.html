@@ -62,9 +62,6 @@
         const dropzoneFileAlert = document.getElementById("dropzoneFileAlert");
         const defaultDropzoneImage = dropzoneImage.src;
 
-        dropzoneFileInput.addEventListener("change", handleFile, false);
-        cancelButton.addEventListener("click", handleCancleButton, false);
-
         function handleFile() {
             var file = this.files[0];
             const allowedTypes = ['image/jpeg', 'image/png'];
@@ -76,7 +73,7 @@
                 dropzoneFileAlert.classList.add('flex');
                 dropzoneFileInput.value = "";
                 return;
-            }
+            };
 
             cancelButton.classList.remove("hidden");
             dropzoneFile.classList.add("hidden");
@@ -88,7 +85,7 @@
             reader.readAsDataURL(file);
 
             dropzoneImage.classList.remove("hidden");
-        }
+        };
 
         function handleCancleButton() {
             dropzoneFileInput.value = "";
@@ -97,6 +94,9 @@
             cancelButton.classList.add("hidden");
             dropzoneImage.classList.add("hidden");
             dropzoneFile.classList.remove("hidden");
-        }
+        };
+
+        dropzoneFileInput.addEventListener("change", handleFile, false);
+        cancelButton.addEventListener("click", handleCancleButton, false);
     </script>
 {% endblock %}

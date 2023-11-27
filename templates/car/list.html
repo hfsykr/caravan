@@ -1,18 +1,35 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-4 justify-items-center px-10 md:px-14 lg:px-20 xl:px-36 py-4 md:py-6 lg:py-8 xl:py-10 min-h-screen w-full bg-white dark:bg-gray-900">
-        {% for d in data %}
-        <div class="bg-white border border-gray-200 w-full rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-            <a href="{{ url_for('car.detail', slug=d['slug']) }}">
-                <img class="rounded-t-lg w-full h-80 md:h-64 xl:h-56 lg:h-48 object-cover" src="{{ url_for('static', filename=d['image']) }}" alt="" />
-            </a>
-            <div class="p-5">
-                <a href="{{ url_for('car.detail', slug=d['slug']) }}">
-                    <h2 class="text-base font-bold tracking-normal text-gray-900 dark:text-white">{{ d["manufacturer"] }} {{ d["model"] }} {{ d["type"] }} {{ d["year"] }}</h2>
+    <div class="flex flex-col min-h-screen w-full px-10 md:px-14 lg:px-20 xl:px-36 py-4 md:py-6 lg:py-8 xl:py-10 bg-white dark:bg-gray-900">
+        <div class="flex justify-end items-center w-full mb-5">
+            <p class="text-white">
+                {{ data.first }} - {{ data.last }} of {{ data.total }} Cars
+            </p>
+            {% if data.has_prev %}
+                <a href="{{ url_for('car.list', page=data.prev_num) }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 ml-5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+                    Prev
                 </a>
-            </div>
+            {% endif %}
+            {% if data.has_next %}
+                <a href="{{ url_for('car.list', page=data.next_num) }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 ml-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+                    Next
+                </a>
+            {% endif %}
         </div>
-        {% endfor %}
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+            {% for d in data %}
+            <div class="bg-white border border-gray-200 w-full rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                <a href="{{ url_for('car.detail', slug=d.slug) }}">
+                    <img class="rounded-t-lg w-full h-80 md:h-64 xl:h-56 lg:h-48 object-cover" src="{{ url_for('static', filename=d.image) }}" alt="" />
+                </a>
+                <div class="p-5">
+                    <a href="{{ url_for('car.detail', slug=d.slug) }}">
+                        <h2 class="text-base font-bold tracking-normal text-gray-900 dark:text-white">{{ d.manufacturer }} {{ d.model }} {{ d.type }} {{ d.year }}</h2>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
     </div>
 {% endblock %}
