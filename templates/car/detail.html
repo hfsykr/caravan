@@ -1,216 +1,220 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div class="flex flex-col px-10 md:px-14 lg:px-20 xl:px-36 py-4 md:py-6 lg:py-8 xl:py-10 min-h-screen w-full bg-white dark:bg-gray-900">
-        <h1 class="text-2xl dark:text-white mb-5">{{ data.manufacturer }} {{ data.model }} {{ data.type }} {{
-            data.year }}</h1>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 ">
-            <img class="rounded-lg object-cover md:col-span-2 h-80 md:h-96 lg:h-112 w-full"
-                src="{{ url_for('static', filename=data.image) }}" alt="" />
-            <div class="overflow-y-auto rounded-lg">
-                <table class="w-full h-full text-sm text-left text-gray-500 dark:text-gray-400">
-                    <thead class="text-xs text-center text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                        <tr>
-                            <th scope="col" colspan="2" class="px-6 py-3">
-                                Basic Specification
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                Manufacturer
-                            </th>
-                            <td class="px-6 py-4">
-                                {{ data.manufacturer }}
-                            </td>
-                        </tr>
-                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                Model
-                            </th>
-                            <td class="px-6 py-4">
-                                {{ data.model }}
-                            </td>
-                        </tr>
-                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                Type
-                            </th>
-                            <td class="px-6 py-4">
-                                {{ data.type }}
-                            </td>
-                        </tr>
-                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                Year
-                            </th>
-                            <td class="px-6 py-4">
-                                {{ data.year }}
-                            </td>
-                        </tr>
-                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                Engine
-                            </th>
-                            <td class="px-6 py-4">
-                                {{ data.engine }}
-                            </td>
-                        </tr>
-                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                Doors
-                            </th>
-                            <td class="px-6 py-4">
-                                {{ data.doors }}
-                            </td>
-                        </tr>
-                        <tr class="bg-white dark:bg-gray-800">
-                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                Seating Capacity
-                            </th>
-                            <td class="px-6 py-4">
-                                {{ data.seating_capacity }}
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="overflow-y-auto rounded-lg">
-                <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                    <thead class="text-xs text-center text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                        <tr>
-                            <th scope="col" colspan="2" class="px-6 py-3">
-                                Engine
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                Engine
-                            </th>
-                            <td class="px-6 py-4">
-                                {{ data.engine }}
-                            </td>
-                        </tr>
-                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                Horsepower
-                            </th>
-                            <td class="px-6 py-4">
-                                {{ data.horsepower }}
-                            </td>
-                        </tr>
-                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                Torque
-                            </th>
-                            <td class="px-6 py-4">
-                                {{ data.torque }}
-                            </td>
-                        </tr>
-                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                Transmission
-                            </th>
-                            <td class="px-6 py-4">
-                                {{ data.transmission }}
-                            </td>
-                        </tr>
-                        <tr class="bg-white dark:bg-gray-800">
-                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                Drivetrain
-                            </th>
-                            <td class="px-6 py-4">
-                                {{ data.drivetrain }}
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="overflow-y-auto rounded-lg">
-                <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                    <thead class="text-xs text-center text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                        <tr>
-                            <th scope="col" colspan="2" class="px-6 py-3">
-                                Fuel & Consumption
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                Fuel Type
-                            </th>
-                            <td class="px-6 py-4">
-                                {{ data.fuel_type }}
-                            </td>
-                        </tr>
-                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                Fuel Capacity
-                            </th>
-                            <td class="px-6 py-4">
-                                {{ data.fuel_capacity }}
-                            </td>
-                        </tr>
-                        <tr class="bg-white dark:bg-gray-800">
-                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                Fuel Consumption
-                            </th>
-                            <td class="px-6 py-4">
-                                {{ data.fuel_consumption }}
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="overflow-y-auto rounded-lg">
-                <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                    <thead class="text-xs text-center text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                        <tr>
-                            <th scope="col" colspan="2" class="px-6 py-3">
-                                Weight & Dimensions
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                Weight
-                            </th>
-                            <td class="px-6 py-4">
-                                {{ data.weight }}
-                            </td>
-                        </tr>
-                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                Length
-                            </th>
-                            <td class="px-6 py-4">
-                                {{ data.length }}
-                            </td>
-                        </tr>
-                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                Width
-                            </th>
-                            <td class="px-6 py-4">
-                                {{ data.width }}
-                            </td>
-                        </tr>
-                        <tr class="bg-white dark:bg-gray-800">
-                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                Height
-                            </th>
-                            <td class="px-6 py-4">
-                                {{ data.height }}
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+    <div class="flex flex-col min-h-screen bg-white dark:bg-gray-900">
+        {% include "header.html" %}
+        <div class="flex flex-col px-10 md:px-14 lg:px-20 xl:px-36 py-4 md:py-6 lg:py-8 xl:py-10">
+            <h1 class="text-2xl dark:text-white mb-5">{{ data.manufacturer }} {{ data.model }} {{ data.type }} {{
+                data.year }}</h1>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 ">
+                <img class="rounded-lg object-cover md:col-span-2 h-80 md:h-96 lg:h-112 w-full"
+                    src="{{ url_for('static', filename=data.image) }}" alt="" />
+                <div class="overflow-y-auto rounded-lg">
+                    <table class="w-full h-full text-sm text-left text-gray-500 dark:text-gray-400">
+                        <thead class="text-xs text-center text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                            <tr>
+                                <th scope="col" colspan="2" class="px-6 py-3">
+                                    Basic Specification
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    Manufacturer
+                                </th>
+                                <td class="px-6 py-4">
+                                    {{ data.manufacturer }}
+                                </td>
+                            </tr>
+                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    Model
+                                </th>
+                                <td class="px-6 py-4">
+                                    {{ data.model }}
+                                </td>
+                            </tr>
+                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    Type
+                                </th>
+                                <td class="px-6 py-4">
+                                    {{ data.type }}
+                                </td>
+                            </tr>
+                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    Year
+                                </th>
+                                <td class="px-6 py-4">
+                                    {{ data.year }}
+                                </td>
+                            </tr>
+                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    Engine
+                                </th>
+                                <td class="px-6 py-4">
+                                    {{ data.engine }}
+                                </td>
+                            </tr>
+                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    Doors
+                                </th>
+                                <td class="px-6 py-4">
+                                    {{ data.doors }}
+                                </td>
+                            </tr>
+                            <tr class="bg-white dark:bg-gray-800">
+                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    Seating Capacity
+                                </th>
+                                <td class="px-6 py-4">
+                                    {{ data.seating_capacity }}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="overflow-y-auto rounded-lg">
+                    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                        <thead class="text-xs text-center text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                            <tr>
+                                <th scope="col" colspan="2" class="px-6 py-3">
+                                    Engine
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    Engine
+                                </th>
+                                <td class="px-6 py-4">
+                                    {{ data.engine }}
+                                </td>
+                            </tr>
+                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    Horsepower
+                                </th>
+                                <td class="px-6 py-4">
+                                    {{ data.horsepower }}
+                                </td>
+                            </tr>
+                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    Torque
+                                </th>
+                                <td class="px-6 py-4">
+                                    {{ data.torque }}
+                                </td>
+                            </tr>
+                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    Transmission
+                                </th>
+                                <td class="px-6 py-4">
+                                    {{ data.transmission }}
+                                </td>
+                            </tr>
+                            <tr class="bg-white dark:bg-gray-800">
+                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    Drivetrain
+                                </th>
+                                <td class="px-6 py-4">
+                                    {{ data.drivetrain }}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="overflow-y-auto rounded-lg">
+                    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                        <thead class="text-xs text-center text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                            <tr>
+                                <th scope="col" colspan="2" class="px-6 py-3">
+                                    Fuel & Consumption
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    Fuel Type
+                                </th>
+                                <td class="px-6 py-4">
+                                    {{ data.fuel_type }}
+                                </td>
+                            </tr>
+                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    Fuel Capacity
+                                </th>
+                                <td class="px-6 py-4">
+                                    {{ data.fuel_capacity }}
+                                </td>
+                            </tr>
+                            <tr class="bg-white dark:bg-gray-800">
+                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    Fuel Consumption
+                                </th>
+                                <td class="px-6 py-4">
+                                    {{ data.fuel_consumption }}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="overflow-y-auto rounded-lg">
+                    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                        <thead class="text-xs text-center text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                            <tr>
+                                <th scope="col" colspan="2" class="px-6 py-3">
+                                    Weight & Dimensions
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    Weight
+                                </th>
+                                <td class="px-6 py-4">
+                                    {{ data.weight }}
+                                </td>
+                            </tr>
+                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    Length
+                                </th>
+                                <td class="px-6 py-4">
+                                    {{ data.length }}
+                                </td>
+                            </tr>
+                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    Width
+                                </th>
+                                <td class="px-6 py-4">
+                                    {{ data.width }}
+                                </td>
+                            </tr>
+                            <tr class="bg-white dark:bg-gray-800">
+                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    Height
+                                </th>
+                                <td class="px-6 py-4">
+                                    {{ data.height }}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
+        {% include "footer.html" %}
     </div>
 {% endblock %}
